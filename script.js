@@ -105,3 +105,37 @@ function actualizarRanking() {
 
 // Actualizar ranking al cargar la página
 actualizarRanking();
+
+// ====================
+// Autenticación con Firebase
+// ====================
+
+const loginButton = document.getElementById("loginButton");
+const logoutButton = document.getElementById("logoutButton");
+let usuarioActual = null;
+
+// Login con Google
+loginButton.addEventListener("click", async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    usuarioActual = result.user;
+    alert(`¡Bienvenido, ${usuarioActual.displayName}!`);
+    loginButton.style.display = "none";
+    logoutButton.style.display = "inline-block";
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+  }
+});
+
+// Logout
+logoutButton.addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+    usuarioActual = null;
+    alert("Sesión cerrada correctamente.");
+    loginButton.style.display = "inline-block";
+    logoutButton.style.display = "none";
+  } catch (error) {
+    console.error("Error al cerrar sesión:", error);
+  }
+});

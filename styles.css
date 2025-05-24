@@ -1,0 +1,55 @@
+/* Estilos base para SaddeyVerse */
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0d0d0d;
+  color: #fff;
+  text-align: center;
+}
+
+h1, h2 {
+  color: #00ffff;
+}
+
+.glow {
+  color: #ff00ff;
+  text-shadow: 0 0 10px #ff00ff;
+}
+
+header {
+  padding: 2rem;
+  background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+}
+
+section {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  background-color: #00ffff;
+  color: #0d0d0d;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #ff00ff;
+  color: #fff;
+}
+
+footer {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}

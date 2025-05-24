@@ -1,3 +1,4 @@
+import { auth, provider, signInWithPopup, signOut, db, doc, setDoc, getDoc, updateDoc, collection, getDocs, query, orderBy, limit } from './firebase.js';
 // script.js - Lógica de SaddeyVerse
 
 // Próximamente: lógica para juegos, ranking, logros...

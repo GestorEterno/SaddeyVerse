@@ -64,3 +64,45 @@ footer {
   padding: 0.5rem 1rem;
   font-size: 1rem;
 }
+/* ====================
+   Estilos para Navbar
+==================== */
+.navbar {
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+  color: #00ffff;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+}
+
+.navbar a, .navbar button {
+  background: none;
+  border: none;
+  color: #00ffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.navbar a:hover, .navbar button:hover {
+  color: #ff00ff;
+}

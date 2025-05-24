@@ -1,4 +1,25 @@
-import { auth, provider, signInWithPopup, signOut, db, doc, setDoc, getDoc, updateDoc, collection, getDocs, query, orderBy, limit } from './firebase.js';
+// Importa Firebase directamente desde la CDN
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+// Configuración de Firebase (la misma de tu firebase.js)
+const firebaseConfig = {
+  apiKey: "AIzaSyDv6s_Es1mg9wQm3yTmNxRTbLaj1Ayc-gI",
+  authDomain: "saddeyverse.firebaseapp.com",
+  projectId: "saddeyverse",
+  storageBucket: "saddeyverse.firebasestorage.app",
+  messagingSenderId: "618729425497",
+  appId: "1:618729425497:web:b6f2a36e5573ae989bbf48",
+  measurementId: "G-0SJ9ZBJ859"
+};
+
+// Inicializa Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
+
 // script.js - Lógica de SaddeyVerse
 
 // Próximamente: lógica para juegos, ranking, logros...

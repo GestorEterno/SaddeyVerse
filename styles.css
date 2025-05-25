@@ -118,10 +118,12 @@ body {
 ==================== */
 section {
   margin: 2rem auto;
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: #1a1a1a;
   border-radius: 10px;
-  width: 80%;
+  width: 90%;         /* 🔥 Ancho más flexible */
+  max-width: 1000px;  /* 🔥 Límite para pantallas grandes */
+  box-sizing: border-box;
 }
 
 button {

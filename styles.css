@@ -84,6 +84,28 @@ body {
 }
 
 /* ====================
+   Navbar Responsive
+==================== */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navbar nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .navbar nav a {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+}
+
+/* ====================
    Hero Section
 ==================== */
 #hero {

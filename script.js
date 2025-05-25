@@ -23,7 +23,7 @@ let usuarioActual = null;
 
 // Login con Google (Redirect)
 loginButton.addEventListener("click", (e) => {
-  e.preventDefault();
+  e.preventDefault(); // 🔥 Esto es CLAVE para que el enlace no recargue la página
   signInWithRedirect(auth, provider);
 });
 
@@ -43,14 +43,13 @@ getRedirectResult(auth)
 
 // Logout
 logoutButton.addEventListener("click", async (e) => {
-  e.preventDefault();
+  e.preventDefault(); // 🔥 También evita que el enlace recargue la página
   await signOut(auth);
   usuarioActual = null;
   alert("Sesión cerrada correctamente.");
   loginButton.style.display = "inline-block";
   logoutButton.style.display = "none";
 });
-
 
 // script.js - Lógica de SaddeyVerse
 

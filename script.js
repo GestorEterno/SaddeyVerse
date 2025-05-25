@@ -95,7 +95,7 @@ let puntos = 0;
 const totalPreguntas = 5;
 
 // Elementos del DOM
-const gamesSection = document.getElementById("gamesSection");
+const gamesSection = document.getElementById("games");
 const triviaBtn = document.getElementById("triviaBtn");
 const rankingList = document.getElementById("rankingList");
 

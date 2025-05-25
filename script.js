@@ -62,20 +62,31 @@ logoutButton.addEventListener("click", async (e) => {
 // Array de preguntas
 const preguntasTrivia = [
   {
-    pregunta: "¿Cuál es el apodo más usado para la comunidad de Saddey?",
-    opciones: ["SadLovers", "SadCrew", "SadGang"],
-    respuesta: "SadGang"
+    pregunta: "¿Cuál es el nombre de SoySaddey?",
+    opciones: ["Nicolas", "Sebastian", "Mateo", "Nico"],
+    respuesta: "Nicolas"
   },
   {
-    pregunta: "¿Qué frase usa Saddey al comenzar sus directos?",
-    opciones: ["¡Hey, SadGang!", "¡Qué onda, chavos!", "¡Buenas, SadCrew!"],
-    respuesta: "¡Buenas, SadCrew!"
+    pregunta: "¿En qué provincia de Argentina vive actualmente?",
+    opciones: ["Buenos Aires", "Chaco", "Córdoba", "Santa Fe"],
+    respuesta: "Córdoba"
   },
   {
-    pregunta: "¿Cuál es el juego de terror favorito de Saddey?",
-    opciones: ["Resident Evil", "Outlast", "Silent Hill"],
-    respuesta: "Resident Evil"
+    pregunta: "¿Cuál fue el nombre en el cual se basó Saddey?",
+    opciones: ["Sandy", "Santi"],
+    respuesta: "Sandy"
   },
+  {
+    pregunta: "¿Cuál es su color favorito?",
+    opciones: ["Azul", "Rojo", "Negro", "Blanco"],
+    respuesta: "Azul"
+  },
+  {
+    pregunta: "¿Dónde vivió por un tiempo?",
+    opciones: ["Florencio Varela", "Bariloche", "Tigre", "Palermo"],
+    respuesta: "Bariloche"
+  }
+];
   {
     pregunta: "¿Qué día suele hacer streams especiales Saddey?",
     opciones: ["Viernes de terror", "Sábado de retos", "Domingo de chill"],
@@ -134,7 +145,7 @@ function mostrarPregunta() {
     document.querySelectorAll(".opcionBtn").forEach(btn => {
       btn.addEventListener("click", e => {
         if (e.target.textContent === q.respuesta) {
-          puntos += 10;
+          puntos += 1;
         }
         preguntaActual++;
         mostrarPregunta();
@@ -171,7 +182,7 @@ function guardarEnRanking(puntos) {
 // Función para actualizar el ranking
 function actualizarRanking() {
   const ranking = JSON.parse(localStorage.getItem("rankingSaddey")) || [];
-  const top = ranking.sort((a, b) => b.puntos - a.puntos).slice(0, 10);
+  const top = ranking.sort((a, b) => b.puntos - a.puntos).slice(0, 100);
 
   rankingList.innerHTML = top
     .map((player, index) => `<li>#${index + 1} - ${player.nombre}: ${player.puntos} pts</li>`)

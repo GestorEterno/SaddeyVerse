@@ -1,10 +1,11 @@
-/* Estilos base para SaddeyVerse */
+/* ====================
+   Estilos base SaddeyVerse
+==================== */
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
   background-color: #0d0d0d;
   color: #fff;
-  text-align: center;
 }
 
 h1, h2 {
@@ -16,56 +17,8 @@ h1, h2 {
   text-shadow: 0 0 10px #ff00ff;
 }
 
-header {
-  padding: 2rem;
-  background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
-}
-
-section {
-  margin: 2rem 0;
-  padding: 1rem;
-  background-color: #1a1a1a;
-  border-radius: 10px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-button {
-  background-color: #00ffff;
-  color: #0d0d0d;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-button:hover {
-  background-color: #ff00ff;
-  color: #fff;
-}
-
-footer {
-  margin-top: 2rem;
-  font-size: 0.8rem;
-  opacity: 0.7;
-}
-.pregunta p {
-  font-size: 1.2rem;
-  margin: 1rem 0;
-}
-
-.pregunta button {
-  display: block;
-  margin: 0.5rem auto;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-}
 /* ====================
-   Estilos para Navbar
+   Navbar
 ==================== */
 .navbar {
   background-color: #1a1a1a;
@@ -80,7 +33,6 @@ footer {
 
 .navbar h1 {
   font-size: 1.5rem;
-  color: #00ffff;
 }
 
 .navbar ul {
@@ -101,8 +53,92 @@ footer {
   font-weight: bold;
   cursor: pointer;
   transition: color 0.3s;
+  font-size: 1rem;
 }
 
 .navbar a:hover, .navbar button:hover {
   color: #ff00ff;
+}
+
+/* ====================
+   Hero Section
+==================== */
+#hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+#hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#hero button {
+  background-color: #00ffff;
+  color: #0d0d0d;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#hero button:hover {
+  background-color: #ff00ff;
+  color: #fff;
+}
+
+/* ====================
+   Secciones Generales
+==================== */
+section {
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  width: 80%;
+}
+
+button {
+  background-color: #00ffff;
+  color: #0d0d0d;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #ff00ff;
+  color: #fff;
+}
+
+/* ====================
+   Footer
+==================== */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* ====================
+   Preguntas Trivia
+==================== */
+.pregunta p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.pregunta button {
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
 }

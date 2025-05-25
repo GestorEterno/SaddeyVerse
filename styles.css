@@ -54,6 +54,7 @@ h1, h2 {
   cursor: pointer;
   transition: color 0.3s;
   font-size: 1rem;
+  text-decoration: none; /* 🔥 Quita el subrayado de los enlaces */
 }
 
 .navbar a:hover, .navbar button:hover {

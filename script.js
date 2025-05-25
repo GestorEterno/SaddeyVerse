@@ -1,13 +1,8 @@
-// ====================
-// Firebase Configuración y Auth
-// ====================
-
-// Importa Firebase directamente desde la CDN
+// Importa Firebase desde la CDN
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
 
-// Configuración de Firebase (copiada desde tu consola Firebase)
+// Configuración Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDv6s_Es1mg9wQm3yTmNxRTbLaj1Ayc-gI",
   authDomain: "saddeyverse.firebaseapp.com",
@@ -18,26 +13,21 @@ const firebaseConfig = {
   measurementId: "G-0SJ9ZBJ859"
 };
 
-// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-const db = getFirestore(app);
-
-// ====================
-// Login y Logout
-// ====================
 
 const loginButton = document.getElementById("loginButton");
 const logoutButton = document.getElementById("logoutButton");
 let usuarioActual = null;
 
 // Login con Google (Redirect)
-loginButton.addEventListener("click", () => {
+loginButton.addEventListener("click", (e) => {
+  e.preventDefault();
   signInWithRedirect(auth, provider);
 });
 
-// Procesar el resultado del login (cuando el usuario vuelve a la app)
+// Procesar resultado de login
 getRedirectResult(auth)
   .then((result) => {
     if (result && result.user) {
@@ -51,17 +41,14 @@ getRedirectResult(auth)
     console.error("Error al obtener el resultado del login:", error);
   });
 
-// Cerrar sesión
-logoutButton.addEventListener("click", async () => {
-  try {
-    await signOut(auth);
-    usuarioActual = null;
-    alert("Sesión cerrada correctamente.");
-    loginButton.style.display = "inline-block";
-    logoutButton.style.display = "none";
-  } catch (error) {
-    console.error("Error al cerrar sesión:", error);
-  }
+// Logout
+logoutButton.addEventListener("click", async (e) => {
+  e.preventDefault();
+  await signOut(auth);
+  usuarioActual = null;
+  alert("Sesión cerrada correctamente.");
+  loginButton.style.display = "inline-block";
+  logoutButton.style.display = "none";
 });
 
 

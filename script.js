@@ -62,19 +62,29 @@ logoutButton.addEventListener("click", async (e) => {
 // Datos: Preguntas de la trivia
 const preguntasTrivia = [
   {
-    pregunta: "¿Cómo se llama el canal principal de SoySaddey?",
-    opciones: ["SaddeyZone", "SoySaddey", "TheSadLife"],
-    respuesta: "SoySaddey"
+    pregunta: "¿Cuál es el apodo más usado para la comunidad de Saddey?",
+    opciones: ["SadLovers", "SadCrew", "SadGang"],
+    respuesta: "SadGang"
   },
   {
-    pregunta: "¿Qué género de juegos suele jugar Saddey?",
-    opciones: ["Shooter", "Aventuras gráficas", "Survival Horror"],
-    respuesta: "Survival Horror"
-  },
-  {
-    pregunta: "¿Cuál es el saludo característico de Saddey?",
-    opciones: ["¡Hey, SadGang!", "¡Buenas, SadCrew!", "¡Hola, mis SadLovers!"],
+    pregunta: "¿Qué frase usa Saddey al comenzar sus directos?",
+    opciones: ["¡Hey, SadGang!", "¡Qué onda, chavos!", "¡Buenas, SadCrew!"],
     respuesta: "¡Buenas, SadCrew!"
+  },
+  {
+    pregunta: "¿Cuál es el juego de terror favorito de Saddey?",
+    opciones: ["Resident Evil", "Outlast", "Silent Hill"],
+    respuesta: "Resident Evil"
+  },
+  {
+    pregunta: "¿Qué día suele hacer streams especiales Saddey?",
+    opciones: ["Viernes de terror", "Sábado de retos", "Domingo de chill"],
+    respuesta: "Viernes de terror"
+  },
+  {
+    pregunta: "¿Qué color le gusta más a Saddey para su diseño?",
+    opciones: ["Cian", "Morado", "Verde"],
+    respuesta: "Morado"
   }
 ];
 

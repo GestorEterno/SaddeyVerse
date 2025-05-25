@@ -165,3 +165,24 @@ footer {
   padding: 0.5rem 1rem;
   font-size: 1rem;
 }
+/* ====================
+   Efecto Futurista - SaddeyVerse
+==================== */
+.glow {
+  color: #ff00ff;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    color: #ff00ff;
+  }
+  50% {
+    transform: scale(1.1);
+    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    color: #00ffff;
+  }
+}

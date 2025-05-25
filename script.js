@@ -21,34 +21,32 @@ const loginButton = document.getElementById("loginButton");
 const logoutButton = document.getElementById("logoutButton");
 let usuarioActual = null;
 
-// Login con Google (Redirect)
-loginButton.addEventListener("click", (e) => {
-  e.preventDefault(); // 🔥 Esto es CLAVE para que el enlace no recargue la página
-  signInWithRedirect(auth, provider);
+// Login con Google (popup)
+loginButton.addEventListener("click", async (e) => {
+  e.preventDefault(); // Evitar recarga de la página
+  try {
+    const result = await signInWithPopup(auth, provider);
+    usuarioActual = result.user;
+    alert(`¡Bienvenido, ${usuarioActual.displayName}!`);
+    loginButton.style.display = "none";
+    logoutButton.style.display = "inline-block";
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+  }
 });
-
-// Procesar resultado de login
-getRedirectResult(auth)
-  .then((result) => {
-    if (result && result.user) {
-      usuarioActual = result.user;
-      alert(`¡Bienvenido, ${usuarioActual.displayName}!`);
-      loginButton.style.display = "none";
-      logoutButton.style.display = "inline-block";
-    }
-  })
-  .catch((error) => {
-    console.error("Error al obtener el resultado del login:", error);
-  });
 
 // Logout
 logoutButton.addEventListener("click", async (e) => {
-  e.preventDefault(); // 🔥 También evita que el enlace recargue la página
-  await signOut(auth);
-  usuarioActual = null;
-  alert("Sesión cerrada correctamente.");
-  loginButton.style.display = "inline-block";
-  logoutButton.style.display = "none";
+  e.preventDefault(); // Evitar recarga de la página
+  try {
+    await signOut(auth);
+    usuarioActual = null;
+    alert("Sesión cerrada correctamente.");
+    loginButton.style.display = "inline-block";
+    logoutButton.style.display = "none";
+  } catch (error) {
+    console.error("Error al cerrar sesión:", error);
+  }
 });
 
 // script.js - Lógica de SaddeyVerse

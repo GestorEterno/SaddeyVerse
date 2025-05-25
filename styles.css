@@ -90,18 +90,24 @@ body {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .navbar nav ul {
     flex-direction: column;
     width: 100%;
-    gap: 0.5rem;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
   }
 
   .navbar nav a {
-    font-size: 0.9rem;
-    padding: 0.5rem 0;
+    font-size: 1rem;
+    padding: 0.4rem 0;
   }
 }
 

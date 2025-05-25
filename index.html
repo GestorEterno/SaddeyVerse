@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="SaddeyVerse - La arena de juegos y comunidad de Saddey" />
   <title>SaddeyVerse</title>
-  
+
   <!-- Tipografía futurista (Orbitron) -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
-  
+
   <!-- Estilos -->
   <link rel="stylesheet" href="styles.css" />
 
@@ -16,18 +16,25 @@
   <link rel="icon" href="favicon.ico" />
 </head>
 <body>
-  <!-- Hero Section -->
-  <header>
-  <nav class="navbar">
+  <!-- Navbar -->
+  <header class="navbar">
     <h1><span class="glow">SaddeyVerse</span></h1>
-    <div class="nav-buttons">
-      <button id="loginButton">Iniciar Sesión</button>
-      <button id="logoutButton" style="display: none;">Cerrar Sesión</button>
-    </div>
-  </nav>
-  <p>Explora, juega y sube de nivel con la comunidad de Saddey</p>
-  <button id="startButton">¡Comenzar!</button>
-</header>
+    <nav>
+      <ul>
+        <li><a href="#games">Juegos</a></li>
+        <li><a href="#ranking">Ranking</a></li>
+        <li><a href="#logros">Logros</a></li>
+        <li><button id="loginButton">Iniciar Sesión</button></li>
+        <li><button id="logoutButton" style="display: none;">Cerrar Sesión</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <h2>Explora, juega y sube de nivel con la comunidad de Saddey</h2>
+    <button id="startButton">¡Comenzar!</button>
+  </section>
 
   <!-- Sección: Juegos de la Comunidad -->
   <section id="games">

@@ -59,7 +59,7 @@ logoutButton.addEventListener("click", async (e) => {
 // Trivia Saddey (Juegos)
 // ====================
 
-// Datos: Preguntas de la trivia
+// Array de preguntas
 const preguntasTrivia = [
   {
     pregunta: "¿Cuál es el apodo más usado para la comunidad de Saddey?",
@@ -88,35 +88,46 @@ const preguntasTrivia = [
   }
 ];
 
-// Estado del juego
+// Variables para controlar el estado del juego
+let preguntasSeleccionadas = [];
 let preguntaActual = 0;
 let puntos = 0;
+const totalPreguntas = 5;
 
-// Elementos del DOM para juegos
+// Elementos del DOM
+const gamesSection = document.getElementById("gamesSection");
 const triviaBtn = document.getElementById("triviaBtn");
-const gamesSection = document.getElementById("games");
 const rankingList = document.getElementById("rankingList");
-const logrosContainer = document.getElementById("logrosContainer");
 
 // Evento para iniciar la trivia
 triviaBtn.addEventListener("click", iniciarTrivia);
 
+// Función para iniciar la trivia
 function iniciarTrivia() {
-  gamesSection.innerHTML = "<h2>🎮 Trivia Saddey</h2>";
+  // Seleccionar 5 preguntas aleatorias
+  preguntasSeleccionadas = preguntasTrivia.sort(() => 0.5 - Math.random()).slice(0, totalPreguntas);
+  preguntaActual = 0;
+  puntos = 0;
   mostrarPregunta();
 }
 
+// Función para mostrar la pregunta actual
 function mostrarPregunta() {
-  if (preguntaActual < preguntasTrivia.length) {
-    const q = preguntasTrivia[preguntaActual];
+  if (preguntaActual < preguntasSeleccionadas.length) {
+    const q = preguntasSeleccionadas[preguntaActual];
+
     const opcionesHTML = q.opciones
       .map(opcion => `<button class="opcionBtn">${opcion}</button>`)
       .join("");
 
-    gamesSection.innerHTML += `
+    gamesSection.innerHTML = `
+      <h2>🎮 ¿Cuánto conoces a Saddey?</h2>
       <div class="pregunta">
-        <p>${q.pregunta}</p>
-        ${opcionesHTML}
+        <p style="font-size:1.2rem; font-weight:bold;">${q.pregunta}</p>
+        <div class="opciones" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          ${opcionesHTML}
+        </div>
+        <p style="font-size:0.9rem; margin-top:1rem;">(Pregunta ${preguntaActual + 1} de ${totalPreguntas})</p>
       </div>
     `;
 
@@ -134,6 +145,7 @@ function mostrarPregunta() {
   }
 }
 
+// Función para finalizar la trivia
 function finalizarTrivia() {
   gamesSection.innerHTML = `
     <h2>🎮 Trivia Finalizada</h2>
@@ -144,6 +156,7 @@ function finalizarTrivia() {
   guardarEnRanking(puntos);
 }
 
+// Función para guardar el puntaje en el ranking
 function guardarEnRanking(puntos) {
   const nombre = prompt("¡Felicidades! Ingresa tu nombre para el ranking:");
   if (!nombre) return;
@@ -155,6 +168,7 @@ function guardarEnRanking(puntos) {
   actualizarRanking();
 }
 
+// Función para actualizar el ranking
 function actualizarRanking() {
   const ranking = JSON.parse(localStorage.getItem("rankingSaddey")) || [];
   const top = ranking.sort((a, b) => b.puntos - a.puntos).slice(0, 10);
@@ -163,13 +177,6 @@ function actualizarRanking() {
     .map((player, index) => `<li>#${index + 1} - ${player.nombre}: ${player.puntos} pts</li>`)
     .join("");
 }
-
-// Mostrar "Próximamente" al hacer clic en Logros
-const logrosButton = document.getElementById("logrosButton");
-logrosButton.addEventListener("click", (e) => {
-  e.preventDefault(); // Evita que se desplace a la sección
-  alert("🚧 Próximamente...");
-});
 
 // Actualizar ranking al cargar la página
 actualizarRanking();

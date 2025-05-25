@@ -154,6 +154,13 @@ function actualizarRanking() {
     .join("");
 }
 
+// Mostrar "Próximamente" al hacer clic en Logros
+const logrosButton = document.getElementById("logrosButton");
+logrosButton.addEventListener("click", (e) => {
+  e.preventDefault(); // Evita que se desplace a la sección
+  alert("🚧 Próximamente...");
+});
+
 // Actualizar ranking al cargar la página
 actualizarRanking();
 

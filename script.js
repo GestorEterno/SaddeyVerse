@@ -1,6 +1,6 @@
 // Importa Firebase desde la CDN
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
 // Configuración Firebase
 const firebaseConfig = {
@@ -13,17 +13,23 @@ const firebaseConfig = {
   measurementId: "G-0SJ9ZBJ859"
 };
 
+// Inicializa Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
+// Elementos del DOM
 const loginButton = document.getElementById("loginButton");
 const logoutButton = document.getElementById("logoutButton");
 let usuarioActual = null;
 
-// Login con Google (popup)
+// ====================
+// Autenticación con Google (Popup)
+// ====================
+
+// Login con Google
 loginButton.addEventListener("click", async (e) => {
-  e.preventDefault(); // Evitar recarga de la página
+  e.preventDefault(); // Evita recargar la página
   try {
     const result = await signInWithPopup(auth, provider);
     usuarioActual = result.user;
@@ -37,7 +43,7 @@ loginButton.addEventListener("click", async (e) => {
 
 // Logout
 logoutButton.addEventListener("click", async (e) => {
-  e.preventDefault(); // Evitar recarga de la página
+  e.preventDefault();
   try {
     await signOut(auth);
     usuarioActual = null;
@@ -49,13 +55,8 @@ logoutButton.addEventListener("click", async (e) => {
   }
 });
 
-// script.js - Lógica de SaddeyVerse
-
-// Próximamente: lógica para juegos, ranking, logros...
-
-console.log("SaddeyVerse cargado 🚀");
 // ====================
-// Trivia Saddey
+// Trivia Saddey (Juegos)
 // ====================
 
 // Datos: Preguntas de la trivia
@@ -81,7 +82,7 @@ const preguntasTrivia = [
 let preguntaActual = 0;
 let puntos = 0;
 
-// Elementos del DOM
+// Elementos del DOM para juegos
 const triviaBtn = document.getElementById("triviaBtn");
 const gamesSection = document.getElementById("games");
 const rankingList = document.getElementById("rankingList");
@@ -156,36 +157,4 @@ function actualizarRanking() {
 // Actualizar ranking al cargar la página
 actualizarRanking();
 
-// ====================
-// Autenticación con Firebase
-// ====================
-
-const loginButton = document.getElementById("loginButton");
-const logoutButton = document.getElementById("logoutButton");
-let usuarioActual = null;
-
-// Login con Google
-loginButton.addEventListener("click", async () => {
-  try {
-    const result = await signInWithPopup(auth, provider);
-    usuarioActual = result.user;
-    alert(`¡Bienvenido, ${usuarioActual.displayName}!`);
-    loginButton.style.display = "none";
-    logoutButton.style.display = "inline-block";
-  } catch (error) {
-    console.error("Error al iniciar sesión:", error);
-  }
-});
-
-// Logout
-logoutButton.addEventListener("click", async () => {
-  try {
-    await signOut(auth);
-    usuarioActual = null;
-    alert("Sesión cerrada correctamente.");
-    loginButton.style.display = "inline-block";
-    logoutButton.style.display = "none";
-  } catch (error) {
-    console.error("Error al cerrar sesión:", error);
-  }
-});
+console.log("SaddeyVerse cargado 🚀");

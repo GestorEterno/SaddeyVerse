@@ -25,39 +25,39 @@ h1, h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.75rem 2rem;
+  max-width: 1000px;  /* 🔥 Ajusta el ancho máximo */
+  margin: 0 auto;     /* 🔥 Centra la barra */
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* 🔥 Sombra para efecto flotante */
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .navbar h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem; /* Logo más grande */
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 2rem; /* 🔥 Más espacio entre elementos del menú */
   margin: 0;
   padding: 0;
 }
 
-.navbar li {
-}
-
-.navbar a, .navbar button {
-  background: none;
-  border: none;
+.navbar a {
+  text-decoration: none;
   color: #00ffff;
+  font-size: 1.3rem; /* 🔥 Más grande y claro */
   font-weight: bold;
-  cursor: pointer;
+  text-transform: uppercase; /* 🔥 Todo en mayúsculas */
+  letter-spacing: 1px; /* 🔥 Espaciado entre letras */
   transition: color 0.3s;
-  font-size: 2rem;
-  text-decoration: none; /* 🔥 Quita el subrayado de los enlaces */
 }
 
-.navbar a:hover, .navbar button:hover {
+.navbar a:hover {
   color: #ff00ff;
 }
 
